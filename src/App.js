@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Title from './Components/Title';
 
 function App() {
+  const[name, setName]=useState("Title");
+  const[date, setDate]=useState("");
+  const[font, setFont]=useState("");
+
+  const handleChange=(e)=>{
+    setName(e.target.value);
+  }
+  const handleDateChange=(e)=>{
+    setDate(e.target.value);
+  }
+
+  const handleFontChange = (e)=>{
+    setFont(e.target.value);
+    console.log(e.target.value);
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title title={name} dates={date} fonts={font}/>
+      <input type="text" onChange={handleChange}/>
+      <input type="date" name="" id="" onChange={handleDateChange}/>
+      <label htmlFor="fonts">Choose the font:</label>
+      <select name="" id="fonts" onChange={handleFontChange}>
+      <option value="">Clear</option>
+      <option value="'Roboto', sans-serif">Roboto</option>
+      <option value="'Roboto Condensed', sans-serif">Roboto Condensed</option>
+      </select>
     </div>
   );
 }
