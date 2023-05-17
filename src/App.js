@@ -16,7 +16,6 @@ function App() {
 
   const handleFontChange = (e)=>{
     setFont(e.target.value);
-    console.log(e.target.value);
   }
 
 
